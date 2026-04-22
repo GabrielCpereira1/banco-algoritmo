@@ -2,7 +2,7 @@ usuario_correto = "Edson Dalbogas"
 senha_correta = "Edson123"
 
 saldo = 500.00
-limite = 5000.00
+limite = 3000.00
 
 def menu():
     while True:
@@ -31,12 +31,10 @@ def login():
             return True
         else:
             tentativas -= 1
-            if tentativas == 0:
-                print(f"Usuário ou senha incorretos. Tentativas restantes: {tentativas}")
-            else:
-                print("Sem mais tentativas.")
-                print("Sessão Encerrada.")
-                exit()
+            print(f"Usuário ou senha incorretos. Tentativas restantes: {tentativas}")
+
+    print("Sessão Encerrada.")
+    return False
 
 def menu_principal():
     global saldo
@@ -74,7 +72,7 @@ def realizar_saque():
         if valor <= 0:
             print("Valor inválido.")
         elif valor > (saldo + limite):
-            print("Saldo insuficiente.")
+            print("Saldo insuficiente/Limite Atingido.")
         else:
             saldo -= valor
             print("Saque realizado")
@@ -99,9 +97,3 @@ def consultar_limite():
 
 # Executar o sistema
 menu()
-
-       
-
-       
-    
-            
